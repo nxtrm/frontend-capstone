@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <AppHeader/>
+      {/* <Outlet/> */}
       <MainSection/>
       <AppFooter/>
     </>
