@@ -1,35 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-function Button({ onClick, children, variant, style }) {
+function Button({ onClick, children, variant, extraStyle }) {
     const baseStyle = 'font-body font-bold text-paragraph rounded-xl max-w-fit p-2';
     const primaryStyle = 'bg-primaryYellow text-primaryGreen';
     const secondaryStyle = 'bg-primaryGreen text-primaryYellow';
     const disabledStyle = 'bg-gray-400 text-gray-700 cursor-not-allowed';
-  
-    const hoverStyle = 'hover:shadow-primaryGreen hover:shadow-lg';
 
     let buttonStyle = baseStyle;
   
     switch (variant) {
       case 'primary':
-        buttonStyle += ` ${primaryStyle} ${hoverStyle}`;
+        buttonStyle += ` ${primaryStyle} ${extraStyle}`;
         break;
       case 'secondary':
-        buttonStyle += ` ${secondaryStyle} ${hoverStyle}`;
+        buttonStyle += ` ${secondaryStyle} ${extraStyle}`;
         break;
       case 'disabled':
-        buttonStyle += ` ${disabledStyle}`;
+        buttonStyle += ` ${disabledStyle} ${extraStyle}`;
         break;
       default:
-        buttonStyle += ` ${primaryStyle} ${hoverStyle}`;
+        buttonStyle += ` ${primaryStyle} ${extraStyle}`;
     }
   
     return (
       <button
         className={buttonStyle}
         onClick={variant !== 'disabled' ? onClick : undefined}
-        style={style}
       >
         {children}
       </button>

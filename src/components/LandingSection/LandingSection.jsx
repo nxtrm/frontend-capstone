@@ -4,10 +4,12 @@ import food from '../../Assets/restauranfood.jpg'
 
 function LandingSection() {
 return (
-    <section className='bg-primaryGreen w-full h-[400px]'>
-        <div className='grid grid-cols-2'>
+    <section className='bg-primaryGreen w-full h-fit'>
+        <div className='grid h-full p-10 grid-cols-2'>
             <Chicago/>
-            <img className='pt-10 h-[325px] w-[375px] object-cover' src={food} alt="Restaurant food" />
+            <div className='flex justify-center items-center'>
+                <img className='h-[360px] w-[375px] rounded-2xl object-cover' src={food} alt="Restaurant food" />
+            </div>
         </div>
     </section>
 )
