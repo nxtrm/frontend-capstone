@@ -18,7 +18,7 @@ module.exports = {
         body: ["'Karla'", "sans-serif"], // Body text font
       },
       fontSize: {
-        display: "20pt", // Display text size
+        display: "30pt", // Display text size
         subtitle: "20pt", // Subtitle size, similar to the display size
         lead: "14pt", // Lead text size
         cardTitle: "12pt", // Card title size
