@@ -3,7 +3,7 @@ import Button from '../Button/Button';
 
 function SpecialsCard({ name, description, image, price }) {
     return (
-      <div className=" rounded-lg shadow-lg overflow-hidden max-w-sm">
+      <div className=" rounded-2xl shadow-lg overflow-hidden max-w-sm">
         <img src={image} alt={name} className="w-full h-48 object-cover" />
         <div className="p-4 flex flex-col gap-4">
             <div className='flex flex-row justify-between'>
