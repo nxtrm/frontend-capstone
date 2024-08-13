@@ -10,7 +10,6 @@ Booking
 
 ## Mobile
 ![image](https://github.com/user-attachments/assets/0d0a1b93-1990-4f25-bc92-79c9b1e8e535)
-![image](https://github.com/user-attachments/assets/5bf45e99-33fa-4d80-bd3a-4c15842e954d)
 ![image](https://github.com/user-attachments/assets/951022b7-f2c2-4a86-824a-4620e398db87)
 
 
