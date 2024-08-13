@@ -4,7 +4,7 @@ import image1 from '../../Assets/m&a1.jpg';
 
 function About() {
   return (
-    <section id="about" className='m-10 grid lg:grid-cols-2 md:grid-cols-2 gap-4 sm:grid-cols-1'>
+    <section id="about" className='m-5 grid lg:grid-cols-2 md:grid-cols-2 gap-4 sm:grid-cols-1'>
       <div className='flex flex-col gap-2'>
         <h1 className='text-primaryGreen font-heading font-bold text-display'>About Little Lemon</h1>
         <p>

@@ -6,7 +6,7 @@ import SpecialsCard from './SpecialsCard'
 function Specials() {
   return (
   <>
-    <div className='m-10 flex flex-col'>
+    <div className='m-5 flex flex-col'>
         <div className='flex flex-row items-center gap-5 w-full'>
             <h1 className='text-primaryGreen font-heading font-bold text-display'>Specials</h1>
             <Button extraStyle="hover:border-2 hover:border-primaryYellow" variant="secondary">Online Menu</Button>

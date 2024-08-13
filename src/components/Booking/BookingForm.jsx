@@ -15,6 +15,9 @@ function BookingForm({ availableTimes, dispatch }) {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isGuestsValid, setIsGuestsValid] = useState(true);
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,23 +31,27 @@ function BookingForm({ availableTimes, dispatch }) {
     }
   };
 
+
   const handleGuestChange = (guests) => {
-    setFormData({
-      ...formData,
-      guests
-    });
+    setFormData({ ...formData, guests });
+    setIsGuestsValid(true); // Reset validation state on change
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!formData.guests) {
+      setIsGuestsValid(false);
+      return;
+    }
     const response = submitAPI(formData)
     if (response) {
-      setIsSubmitted(true);}
+        setIsSubmitted(true);}
+    console.log('Form submitted:', formData);
   };
 
   if (isSubmitted) {
     return (
-      <div className="confirmation-screen flex flex-col justify-center p-5 bg-secondaryBeige rounded-lg">
+      <div className="confirmation-screen flex flex-col items-center md:w-[50%] sm:w-full lg:w-[50%] h-[550px] justify-center p-5 bg-secondaryBeige rounded-lg">
         <h2 className="text-primaryGreen font-subtitle mb-4">Reservation Confirmed</h2>
         <p className="mb-2"><strong>Date:</strong> {formData.date}</p>
         <p className="mb-2"><strong>Time:</strong> {formData.time}</p>
@@ -71,7 +78,7 @@ function BookingForm({ availableTimes, dispatch }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`flex flex-col w-[50%] gap-5 p-5 bg-secondaryBeige rounded-lg ${isSubmitted ? 'submitted' : ''}`}
+      className={`flex flex-col md:w-[50%] sm:w-full lg:w-[50%] h-[550px] gap-5 p-5 bg-secondaryBeige rounded-lg ${isSubmitted ? 'submitted' : ''}`}
     >
       <div className="form-group col-span-2">
         <label htmlFor="date" className="block text-highlightDark font-body mb-2">Date *</label>
@@ -107,6 +114,7 @@ function BookingForm({ availableTimes, dispatch }) {
       <div className="form-group col-span-2">
         <label htmlFor="guests" className="block text-highlightDark font-body mb-2">Number of guests *</label>
         <GuestButtons selectedGuests={formData.guests} onGuestChange={handleGuestChange} />
+        {!isGuestsValid && <p className="text-red-500">Please select the number of guests.</p>}
       </div>
       <div className="form-group col-span-2">
         <label htmlFor="occasion" className="block text-highlightDark font-body mb-2">Occasion(Optional)</label>
