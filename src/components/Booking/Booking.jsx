@@ -1,12 +1,14 @@
 import BookingForm from "./BookingForm";
+import { useReducer } from "react";
 
-function Booking() {
-    return (
-      <section className="m-10 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-        <h2>Book Your Reservation</h2>
-        <BookingForm />
-      </section>
-    );
-  }
 
-export default Booking
+function Booking({ availableTimes, dispatch }) {
+  return (
+    <div className="flex flex-col gap-4 m-10">
+      <h1 className="'text-primaryGreen font-heading font-bold text-display">Book Now</h1>
+      <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+    </div>
+  );
+}
+
+export default Booking;
