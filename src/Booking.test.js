@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import BookingPage from './BookingPage';
-import BookingForm from './BookingForm';
-import { fetchAPI, submitAPI } from '../../api';
-import { tab } from '@testing-library/user-event/dist/tab';
+import BookingPage from './components/Booking/BookingPage';
+import BookingForm from './components/Booking/BookingForm';
+import { fetchAPI, submitAPI } from './api';
+
 
 jest.mock('../../api', () => ({
   fetchAPI: jest.fn(),
