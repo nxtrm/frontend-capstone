@@ -10,7 +10,7 @@ function NavBar() {
             <LinkButton href="/">Home</LinkButton>
             <LinkButton href="#about">About</LinkButton>
             <LinkButton >Menu</LinkButton>
-            <LinkButton >Reservations</LinkButton>
+            <LinkButton href="/booking">Reservations</LinkButton>
             <LinkButton >Order Online</LinkButton>
             <LinkButton >Login</LinkButton>
         </div>
