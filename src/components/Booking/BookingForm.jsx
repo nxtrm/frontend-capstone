@@ -39,11 +39,7 @@ function BookingForm({ availableTimes, dispatch }) {
     e.preventDefault();
     const response = submitAPI(formData)
     if (response) {
-      setIsSubmitted(true);
-
-    } else {
-      alert('Something went wrong. Please try again.');
-    }
+      setIsSubmitted(true);}
   };
 
   if (isSubmitted) {
@@ -78,7 +74,7 @@ function BookingForm({ availableTimes, dispatch }) {
       className={`flex flex-col w-[50%] gap-5 p-5 bg-secondaryBeige rounded-lg ${isSubmitted ? 'submitted' : ''}`}
     >
       <div className="form-group col-span-2">
-        <label htmlFor="date" className="block text-highlightDark font-body mb-2">Date*</label>
+        <label htmlFor="date" className="block text-highlightDark font-body mb-2">Date *</label>
         <input
           type="date"
           id="date"
@@ -91,7 +87,7 @@ function BookingForm({ availableTimes, dispatch }) {
         />
       </div>
       <div className="form-group col-span-2">
-        <label htmlFor="time" className="block text-highlightDark font-body mb-2">Time*</label>
+        <label htmlFor="time" className="block text-highlightDark font-body mb-2">Time *</label>
         <select
           id="time"
           name="time"
@@ -103,13 +99,13 @@ function BookingForm({ availableTimes, dispatch }) {
           className="w-full p-2 border-2 border-primaryGreen rounded"
         >
           <option value="">Select a time</option>
-          {availableTimes.map((time) => (
+          {availableTimes && availableTimes.map((time) => (
             <option key={time} value={time}>{time}</option>
           ))}
         </select>
       </div>
       <div className="form-group col-span-2">
-        <label htmlFor="guests" className="block text-highlightDark font-body mb-2">Number of guests*</label>
+        <label htmlFor="guests" className="block text-highlightDark font-body mb-2">Number of guests *</label>
         <GuestButtons selectedGuests={formData.guests} onGuestChange={handleGuestChange} />
       </div>
       <div className="form-group col-span-2">
@@ -131,7 +127,7 @@ function BookingForm({ availableTimes, dispatch }) {
         <TableButtons selectedTables={formData.tableLocation} onTableChange={(tableLocation) => setFormData({ ...formData, tableLocation })} />
       </div>
       <div className="col-span-2 flex justify-center">
-        <Button variant={'secondary'} type="submit" className="bg-primaryGreen text-white font-body py-2 px-4 rounded">Submit reservation</Button>
+        <Button variant={'secondary'} name="submit reservation" type="submit" className="bg-primaryGreen text-white font-body py-2 px-4 rounded">Submit reservation</Button>
       </div>
     </form>
   );
