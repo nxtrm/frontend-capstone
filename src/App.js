@@ -1,15 +1,14 @@
-/* global fetchAPI, submitAPI */
-import './App.css';
-import AppHeader from './components/AppHeader';
-import MainSection from './components/MainSection';
-import AppFooter from './components/AppFooter';
-import { Routes, Route, BrowserRouter as Router  } from 'react-router-dom';
-import Booking from './components/Booking/Booking';
 import { useReducer } from 'react';
-import { fetchAPI, submitAPI } from './api';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { fetchAPI } from './api';
+import './App.css';
+import AppFooter from './components/AppFooter';
+import AppHeader from './components/AppHeader';
+import BookingPage from './components/Booking/BookingPage';
+import HomePage from './components/HomePage';
 
 const initializeTimes = () => {
-  return ['12:00', '12:30', '13:00', '13:30', '14:00'];
+  return [];
 };
 
 const updateTimes = (state, action) => {
@@ -30,10 +29,10 @@ function App() {
   return (
     <Router>
       <AppHeader />
-      <Routes>
-        <Route path="/" element={<MainSection />} />
-        <Route path="/booking" element={<Booking availableTimes={availableTimes} dispatch={dispatch}/>} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/booking" element={<BookingPage availableTimes={availableTimes} dispatch={dispatch}/>} />
+        </Routes>
       <AppFooter />
     </Router>
   );

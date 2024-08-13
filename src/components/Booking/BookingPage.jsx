@@ -1,8 +1,7 @@
 import BookingForm from "./BookingForm";
-import { useReducer } from "react";
 
 
-function Booking({ availableTimes, dispatch }) {
+function BookingPage({ availableTimes, dispatch }) {
   return (
     <div className="flex flex-col gap-4 m-10">
       <h1 className="'text-primaryGreen font-heading font-bold text-display">Book Now</h1>
@@ -11,4 +10,4 @@ function Booking({ availableTimes, dispatch }) {
   );
 }
 
-export default Booking;
+export default BookingPage;

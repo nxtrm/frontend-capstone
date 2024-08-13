@@ -12,7 +12,7 @@ function About() {
         </p>
       </div>
       <div className='flex justify-center items-center'>
-        <img src={image1} alt="Mario and Andrian image" className='w-[270px] object-cover rounded-2xl h-[330px]' />
+        <img src={image1} alt="Mario and Andrian" className='w-[270px] object-cover rounded-2xl h-[330px]' />
       </div>
     </section>
   );

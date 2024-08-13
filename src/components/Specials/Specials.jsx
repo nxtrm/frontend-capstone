@@ -3,9 +3,9 @@ import Button from '../Button/Button'
 import specials from './SpecialsData/specials'
 import SpecialsCard from './SpecialsCard'
 
-function SpecialsSection() {
+function Specials() {
   return (
-  <section>
+  <>
     <div className='m-10 flex flex-col'>
         <div className='flex flex-row items-center gap-5 w-full'>
             <h1 className='text-primaryGreen font-heading font-bold text-display'>Specials</h1>
@@ -27,8 +27,8 @@ function SpecialsSection() {
             </div>
         </div>
     </div>
-    </section>
+    </>
   )
 }
 
-export default SpecialsSection
+export default Specials

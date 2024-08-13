@@ -1,9 +1,9 @@
-/* global fetchAPI, submitAPI */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { submitAPI } from '../../api';
 import Button from '../Button/Button';
 import GuestButtons from './GuestButtons';
 import TableButtons from './TableButtons';
-import { submitAPI } from '../../api';
 
 function BookingForm({ availableTimes, dispatch }) {
   const [formData, setFormData] = useState({
@@ -37,15 +37,40 @@ function BookingForm({ availableTimes, dispatch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-
     const response = submitAPI(formData)
     if (response) {
-      alert('Reservation submitted successfully!');
+      setIsSubmitted(true);
+
     } else {
       alert('Something went wrong. Please try again.');
     }
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="confirmation-screen flex flex-col justify-center p-5 bg-secondaryBeige rounded-lg">
+        <h2 className="text-primaryGreen font-subtitle mb-4">Reservation Confirmed</h2>
+        <p className="mb-2"><strong>Date:</strong> {formData.date}</p>
+        <p className="mb-2"><strong>Time:</strong> {formData.time}</p>
+        <p className="mb-2"><strong>Number of guests:</strong> {formData.guests}</p>
+        {formData.occasion && <p className="mb-2"><strong>Occasion:</strong> {formData.occasion}</p>}
+        {formData.tableLocation && <p className="mb-2"><strong>Table Location:</strong> {formData.tableLocation}</p>}
+        <div className='flex flex-row gap-5 items-center'>
+
+          <Button variant={'secondary'} onClick={() => {
+            setIsSubmitted(false)
+            setFormData({
+              date: '',
+              time: '',
+              guests: '',
+              occasion: '',
+              tableLocation: ''})
+            }} className="bg-primaryGreen text-white font-body py-2 px-4 rounded">Make another reservation</Button>
+          <Link to="/" className="text-primaryGreen font-body underline">Return</Link>
+          </div>
+      </div>
+    );
+  }
 
   return (
     <form
